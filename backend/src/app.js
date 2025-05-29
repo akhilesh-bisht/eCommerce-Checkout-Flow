@@ -25,6 +25,10 @@ app.use(express.static("public"));
 // Parse cookies
 app.use(cookieParser());
 
-app.get("/", (req, res) => console.log("server started"));
+// >>>>   Routes imports >>>>>
+import productRoutes from "./routes/product.route.js";
+
+// <<<< routes declarations   >>>>
+app.use("/api/v1/product", productRoutes);
 
 export { app };

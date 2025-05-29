@@ -1,0 +1,137 @@
+[
+  {
+    "id": "p1",
+    "title": "Converse Chuck Taylor",
+    "description": "Classic high-top sneakers for everyday wear.",
+    "price": 75,
+    "image": "/images/converse1.png",
+    "variants": ["Black", "Red", "White"],
+    "stock": 12
+  },
+  {
+    "id": "p2",
+    "title": "Nike Air Max 90",
+    "description": "Cushioned and comfortable running shoes.",
+    "price": 120,
+    "image": "/images/nike1.png",
+    "variants": ["Blue", "Grey", "Green"],
+    "stock": 20
+  },
+  {
+    "id": "p3",
+    "title": "Adidas Ultraboost",
+    "description": "Responsive running shoes with Boost technology.",
+    "price": 130,
+    "image": "/images/adidas1.png",
+    "variants": ["Black", "White"],
+    "stock": 15
+  },
+  {
+    "id": "p4",
+    "title": "Vans Old Skool",
+    "description": "Skater favorite low-top sneakers.",
+    "price": 65,
+    "image": "/images/vans1.png",
+    "variants": ["Black/White", "Navy"],
+    "stock": 18
+  },
+  {
+    "id": "p5",
+    "title": "Puma RS-X",
+    "description": "Retro-style running shoes with modern design.",
+    "price": 95,
+    "image": "/images/puma1.png",
+    "variants": ["Multicolor", "Grey", "White"],
+    "stock": 22
+  },
+  {
+    "id": "p6",
+    "title": "Reebok Classic Leather",
+    "description": "Timeless leather trainers with cushioned sole.",
+    "price": 70,
+    "image": "/images/reebok1.png",
+    "variants": ["White", "Beige"],
+    "stock": 14
+  },
+  {
+    "id": "p7",
+    "title": "New Balance 574",
+    "description": "Classic silhouette with ENCAP midsole.",
+    "price": 85,
+    "image": "/images/nb1.png",
+    "variants": ["Grey", "Blue", "Green"],
+    "stock": 19
+  },
+  {
+    "id": "p8",
+    "title": "Jordan 1 Mid",
+    "description": "Iconic basketball shoes with premium style.",
+    "price": 140,
+    "image": "/images/jordan1.png",
+    "variants": ["Bred", "Royal", "Shadow"],
+    "stock": 10
+  },
+  {
+    "id": "p9",
+    "title": "ASICS Gel-Kayano",
+    "description": "Stability running shoes with Gel cushioning.",
+    "price": 110,
+    "image": "/images/asics1.png",
+    "variants": ["Black", "White", "Orange"],
+    "stock": 16
+  },
+  {
+    "id": "p10",
+    "title": "Under Armour HOVR",
+    "description": "Lightweight training shoes with HOVR tech.",
+    "price": 90,
+    "image": "/images/ua1.png",
+    "variants": ["Red", "Grey", "Black"],
+    "stock": 17
+  },
+  {
+    "id": "p11",
+    "title": "Crocs Classic Clog",
+    "description": "Comfortable slip-ons for casual use.",
+    "price": 45,
+    "image": "/images/crocs1.png",
+    "variants": ["Yellow", "Blue", "Black"],
+    "stock": 30
+  },
+  {
+    "id": "p12",
+    "title": "Birkenstock Arizona",
+    "description": "Double-strap sandals with cork footbed.",
+    "price": 100,
+    "image": "/images/birkenstock1.png",
+    "variants": ["Brown", "Black"],
+    "stock": 12
+  },
+  {
+    "id": "p13",
+    "title": "Timberland 6-Inch Boots",
+    "description": "Durable waterproof boots for rugged use.",
+    "price": 160,
+    "image": "/images/timberland1.png",
+    "variants": ["Wheat", "Black"],
+    "stock": 8
+  },
+  {
+    "id": "p14",
+    "title": "Dr. Martens 1460",
+    "description": "Iconic 8-eye leather boots.",
+    "price": 150,
+    "image": "/images/docmartens1.png",
+    "variants": ["Black", "Cherry Red"],
+    "stock": 13
+  },
+  {
+    "id": "p15",
+    "title": "Fila Disruptor II",
+    "description": "Chunky retro sneakers with bold sole.",
+    "price": 75,
+    "image": "/images/fila1.png",
+    "variants": ["White", "Pink"],
+    "stock": 25
+  }
+]
