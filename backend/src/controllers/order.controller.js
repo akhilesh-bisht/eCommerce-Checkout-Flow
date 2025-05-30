@@ -81,3 +81,20 @@ export const checkoutOrder = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+// Get order by order number
+export const getOrderByOrderNumber = async (req, res) => {
+  const { orderNumber } = req.params;
+
+  try {
+    const order = await Order.findOne({ orderNumber });
+
+    if (!order) {
+      return res.status(404).json({ message: "Order not found" });
+    }
+
+    res.status(200).json(order);
+  } catch (error) {
+    console.error("Get Order Error:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
