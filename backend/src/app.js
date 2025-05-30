@@ -27,8 +27,11 @@ app.use(cookieParser());
 
 // >>>>   Routes imports >>>>>
 import productRoutes from "./routes/product.route.js";
+import orderRoutes from "./routes/order.route.js";
 
 // <<<< routes declarations   >>>>
 app.use("/api/v1/product", productRoutes);
+app.use("/api/v1/orders", orderRoutes);
 
 export { app };
+//  "_id": "609b0a2f9b1b2b31a4f6c123",
