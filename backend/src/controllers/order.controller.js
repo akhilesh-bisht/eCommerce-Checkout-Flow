@@ -1,8 +1,7 @@
-// controllers/orderController.js
 import { Order } from "../models/order.model.js";
 import { Product } from "../models/products.model.js";
 import { generateOrderNumber } from "../utils/orderUtils.js";
-// import { sendConfirmationEmail } from "../utils/email.js"; // Optional
+import { sendConfirmationEmail } from "../utils/email.js";
 
 export const checkoutOrder = async (req, res) => {
   const { customerInfo, productInfo, transactionOutcome } = req.body;
@@ -54,7 +53,7 @@ export const checkoutOrder = async (req, res) => {
       },
       customer: customerInfo,
       payment: {
-        cardNumberMasked: "**** **** **** " + productInfo.cardNumber?.slice(-4),
+        cardNumber: "**** **** **** " + productInfo.cardNumber?.slice(-4),
         expiryDate: productInfo.expiryDate,
       },
       subtotal,
@@ -63,8 +62,14 @@ export const checkoutOrder = async (req, res) => {
 
     await newOrder.save();
 
-    // Optionally send confirmation email
-    // await sendConfirmationEmail(customerInfo.email, transactionOutcome, orderNumber, productInfo, customerInfo);
+    //  send confirmation email
+    await sendConfirmationEmail(
+      customerInfo.email,
+      transactionOutcome,
+      orderNumber,
+      productInfo,
+      customerInfo
+    );
 
     res.status(201).json({
       orderNumber,
