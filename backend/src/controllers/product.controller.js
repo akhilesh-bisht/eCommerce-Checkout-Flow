@@ -11,7 +11,7 @@ export const getAllProducts = async (req, res) => {
   try {
     const baseUrl =
       process.env.NODE_ENV === "production"
-        ? "https://ecommerce-checkout-flow.onrender.com/images"
+        ? "https://ecommerce-checkout-flow.onrender.com/images/"
         : "http://localhost:4000/images/";
 
     const rawData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
