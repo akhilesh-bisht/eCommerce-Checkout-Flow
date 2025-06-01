@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { ShoppingBag } from "lucide-react";
 import Navbar from "../components/Navbar";
 import ProductGrid from "../components/ProductGrid";
-import { useSelector } from "react-redux";
 import { fetchAllProducts } from "../Api/order.api.js";
 
 export default function Home() {
@@ -11,8 +10,6 @@ export default function Home() {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
-
-  const cart = useSelector((state) => state.cart);
 
   useEffect(() => {
     async function loadProducts() {

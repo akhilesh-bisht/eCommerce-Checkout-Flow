@@ -1,14 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingCart, Search, Menu, X } from "lucide-react";
-import { useSelector } from "react-redux";
+import { Search, Menu, X } from "lucide-react";
 
 export default function Navbar({ searchQuery, onSearchChange }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [savedCartCount, setSavedCartCount] = useState(0);
-
-  const cartItems = useSelector((state) => state.cart.items);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,25 +14,9 @@ export default function Navbar({ searchQuery, onSearchChange }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (cartItems && Array.isArray(cartItems)) {
-      const totalCount = cartItems.reduce(
-        (sum, item) => sum + item.quantity,
-        0
-      );
-      setSavedCartCount(totalCount);
-    } else {
-      setSavedCartCount(0);
-    }
-  }, [cartItems]);
-
   const toggleMenu = useCallback(() => {
     setIsMenuOpen((prev) => !prev);
   }, []);
-
-  const navigateTo = (url) => {
-    window.location.href = url;
-  };
 
   return (
     <header
@@ -77,37 +57,14 @@ export default function Navbar({ searchQuery, onSearchChange }) {
             </div>
           </div>
 
-          {/* Right-side buttons */}
-          <div className="flex items-center space-x-4">
-            {/* Shopping Cart Button */}
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="relative p-2 rounded-full bg-indigo-100 text-indigo-600"
-              onClick={() => navigateTo("/cart")}
-              aria-label="View Cart"
-            >
-              <ShoppingCart size={20} className="cursor-pointer" />
-              {savedCartCount > 0 && (
-                <motion.span
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  className="absolute -top-1 -right-1 bg-indigo-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
-                >
-                  {savedCartCount}
-                </motion.span>
-              )}
-            </motion.button>
-
-            {/* Mobile Menu Toggle */}
-            <button
-              className="p-2 rounded-full bg-gray-100 text-gray-700 md:hidden"
-              onClick={toggleMenu}
-              aria-label="Toggle Menu"
-            >
-              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
-          </div>
+          {/* Mobile Menu Toggle */}
+          <button
+            className="p-2 rounded-full bg-gray-100 text-gray-700 md:hidden"
+            onClick={toggleMenu}
+            aria-label="Toggle Menu"
+          >
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
 
         {/* Mobile Search Input */}
@@ -138,7 +95,7 @@ export default function Navbar({ searchQuery, onSearchChange }) {
               className="md:hidden py-4 border-t border-gray-200"
             >
               <nav className="flex flex-col space-y-4">
-                {/* Add mobile links if needed */}
+                {/* Add links if needed in future */}
               </nav>
             </motion.div>
           )}

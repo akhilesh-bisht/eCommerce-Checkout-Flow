@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:4000/api/v1",
+  baseURL: "https://ecommerce-checkout-flow.onrender.com/api/v1",
 });
 
 // Get all products
