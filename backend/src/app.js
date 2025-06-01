@@ -34,4 +34,3 @@ app.use("/api/v1/products", productRoutes);
 app.use("/api/v1/orders", orderRoutes);
 
 export { app };
-//  "_id": "609b0a2f9b1b2b31a4f6c123",

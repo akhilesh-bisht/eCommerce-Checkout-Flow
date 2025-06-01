@@ -16,12 +16,6 @@ export const sendConfirmationEmail = async (
   productInfo,
   customerInfo
 ) => {
-  console.log("customerEmail:", customerEmail);
-  console.log("transactionOutcome:", transactionOutcome);
-  console.log("orderNumber:", orderNumber);
-  console.log("productInfo:", productInfo);
-  console.log("customerInfo:", customerInfo);
-
   try {
     const mailOption = {
       from: process.env.EMAIL_FROM,

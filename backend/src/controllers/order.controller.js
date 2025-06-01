@@ -23,7 +23,8 @@ export const checkoutOrder = async (req, res) => {
     }
 
     const orderNumber = generateOrderNumber();
-    const product = await Product.findById(productInfo.id);
+    const product = await Product.findOne({ productId: productInfo.id });
+
     if (!product) {
       return res.status(404).json({ message: "Product not found" });
     }
@@ -45,7 +46,7 @@ export const checkoutOrder = async (req, res) => {
       orderNumber,
       status: transactionOutcome,
       product: {
-        id: product._id,
+        id: product.productId,
         title: product.title,
         variant: productInfo.variant || "Default",
         quantity: productInfo.quantity,

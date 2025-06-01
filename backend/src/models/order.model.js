@@ -3,15 +3,13 @@ import { Schema, model, Types } from "mongoose";
 const orderSchema = new Schema(
   {
     orderNumber: { type: String, required: true, unique: true },
-
     status: {
       type: String,
       enum: ["approved", "declined", "failed"],
       required: true,
     },
-
     product: {
-      id: { type: Types.ObjectId, ref: "Product", required: true },
+      id: { type: String, required: true },
       title: { type: String, required: true },
       variant: { type: String },
       quantity: {
@@ -20,10 +18,9 @@ const orderSchema = new Schema(
         min: [1, "Quantity must be at least 1"],
       },
       price: { type: Number, required: true },
-      subtotal: { type: Number },
-      total: { type: Number },
     },
-
+    subtotal: { type: Number, required: true },
+    total: { type: Number, required: true },
     customer: {
       fullName: { type: String, required: true },
       email: {
@@ -31,7 +28,6 @@ const orderSchema = new Schema(
         required: [true, "Email is required"],
         validate: {
           validator: function (value) {
-            // regex for validating email format
             return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
               value
             );
@@ -44,7 +40,6 @@ const orderSchema = new Schema(
         required: [true, "Phone number is required"],
         validate: {
           validator: function (value) {
-            // Ensure phone number is 10 digits long
             return /^\d{10}$/.test(value);
           },
           message: "Phone number should be exactly 10 digits",
@@ -62,23 +57,16 @@ const orderSchema = new Schema(
       expiryDate: {
         type: String,
         required: true,
-        validate: {
-          validator: function (value) {
-            // Expiry Date  MM/YY format
-            return /^(0[1-9]|1[0-2])\/\d{2}$/.test(value);
-          },
-          message: "Invalid expiry date format. Use MM/YY",
-        },
       },
+
       CVV: {
         type: String,
         required: [true, "CVV is required"],
         validate: {
           validator: function (value) {
-            // CVV should be 3 or 4 digits
-            return /^\d{3}$/.test(value);
+            return /^\d{3,4}$/.test(value);
           },
-          message: "CVV should be 3 digits",
+          message: "CVV should be 3 or 4 digits",
         },
       },
     },
